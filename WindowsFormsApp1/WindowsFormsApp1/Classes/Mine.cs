@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsApp1.Classes
 {
-    class Mine
+    class Mine : GameObject
     {
         int health = 100;
 

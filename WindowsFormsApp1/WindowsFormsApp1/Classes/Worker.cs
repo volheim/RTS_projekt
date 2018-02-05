@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsApp1.Classes
 {
-    class Worker
+    class Worker : GameObject
     {
 
         Graphics dc;

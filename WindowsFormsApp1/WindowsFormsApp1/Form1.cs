@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        static List<object> objList;
+        static List<Object> objList;
         static List<string> locationList;
         static Graphics dc;
         BufferedGraphics backBuffer;
@@ -20,14 +21,17 @@ namespace WindowsFormsApp1
         int money;
 
         int maxWorkerCount;
-        List<object> workerList;
+        List<Object> workerList;
+        List<Object> mineList;
 
         string baseLoccation;
 
         public Form1()
         {
             InitializeComponent();
-            
+            Thread workerThread = new Thread(WorkerLoop);
+            Thread mineThread = new Thread(MineLoop);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -41,6 +45,26 @@ namespace WindowsFormsApp1
 
 
             Draw();
+        }
+
+        public void WorkerLoop()
+        {
+            foreach (object obj in workerList)
+            {
+                obj.
+            }
+
+            WorkerLoop();
+        }
+
+        public void MineLoop()
+        {
+            foreach(Object obj in mineList)
+            {
+
+            }
+
+            MineLoop();
         }
 
         public void RemoveObjFromList(object obj)
@@ -68,7 +92,7 @@ namespace WindowsFormsApp1
             {
                 UpdateLocations(obj, i);
 
-                obj.Draw
+                obj.Draw();
                 i++;
             }
 

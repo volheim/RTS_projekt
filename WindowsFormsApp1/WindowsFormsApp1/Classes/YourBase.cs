@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1.Classes
 {
-    class YourBase
+    class YourBase : GameObject
     {
         public string position;
 
