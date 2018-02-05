@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         static List<object> objList;
         static List<string> locationList;
         static Graphics dc;
+        BufferedGraphics backBuffer;
 
         int money;
 
@@ -63,9 +64,35 @@ namespace WindowsFormsApp1
             foreach(object obj in objList)
             {
                 UpdateLocations(obj, i);
+
+
                 i++;
-                
             }
+
+            dc.Clear(Color.White);
+
+            /*dc.Clear(Color.Cornsilk);
+            Font f = new Font("Arial", 16);
+            foreach (GameObject go in objects)
+            {
+                go.Draw(dc);
+
+#if DEBUG //This code will only be run in   debug mode
+                dc.DrawString(string.Format("FPS: {0}", currentFps), f, Brushes.Black, 550, 0);
+#endif
+
+            }
+            foreach (Explosion ex in explosions_List)
+            {
+                ex.Draw(dc);
+            }
+            foreach (Player player in playerList)
+            {
+                DrawUiPlayer(player);
+
+            }
+            //Renders the content of the buffered graphics context to the real context(Swap buffers)*/
+            backBuffer.Render();
         }
     }
 }
