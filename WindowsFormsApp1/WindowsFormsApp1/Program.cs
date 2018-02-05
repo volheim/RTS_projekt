@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
                 formLaunched = true;
             }
 
-            //test
+            
             Main();
         }
     }
