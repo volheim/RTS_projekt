@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace WindowsFormsApp1.Classes
 {
@@ -12,28 +13,27 @@ namespace WindowsFormsApp1.Classes
 
         public string position;
 
+        Graphics dc;
+
+
+        public void AddResourceToWorker()
+        {
+
+        }
 
         public Mine()
         {
 
         }
-<<<<<<< HEAD
-        public string Position()
-=======
 
-        public void AddResourceToWorker()
->>>>>>> 23b0174308b7723ed59034d998d92bcbd9b653f2
+        public string Position()
         {
             return Position;//placeholder
         }
-<<<<<<< HEAD
-
-=======
         /*public void Position()
         {
 
         }*/
->>>>>>> 23b0174308b7723ed59034d998d92bcbd9b653f2
         public int Health
         {
             set
@@ -56,6 +56,12 @@ namespace WindowsFormsApp1.Classes
         public int WorkTime()
         {
             return Time; //placeholder
+        }
+
+
+        public void Draw()
+        {
+
         }
     }
 }

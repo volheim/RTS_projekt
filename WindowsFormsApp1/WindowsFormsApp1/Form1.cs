@@ -60,16 +60,18 @@ namespace WindowsFormsApp1
 
         void Draw()
         {
+
+            dc.Clear(Color.White);
+
             int i = 0;
             foreach(object obj in objList)
             {
                 UpdateLocations(obj, i);
 
-
+                obj.Draw
                 i++;
             }
 
-            dc.Clear(Color.White);
 
             /*dc.Clear(Color.Cornsilk);
             Font f = new Font("Arial", 16);
