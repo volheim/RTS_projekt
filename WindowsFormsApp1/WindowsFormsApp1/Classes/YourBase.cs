@@ -15,6 +15,13 @@ namespace WindowsFormsApp1.Classes
         {
 
         }
+<<<<<<< HEAD
+        public string Position()
+        {
+            return Position; //placeholder
+        }
+        public int TotalResource()
+=======
 
         public void Collision()
         {
@@ -25,8 +32,9 @@ namespace WindowsFormsApp1.Classes
 
         }*/
         public void TotalResource()
+>>>>>>> 23b0174308b7723ed59034d998d92bcbd9b653f2
         {
-
+            return TR; //placeholder
         }
         public void ControlWorkers()
         {
