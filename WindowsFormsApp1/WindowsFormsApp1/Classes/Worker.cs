@@ -8,22 +8,23 @@ namespace WindowsFormsApp1.Classes
 {
     class Worker
     {
-        public void TargetPosition()
+        public int TargetPosition(int x, int y)
         {
-
+            return x,y; //placeholder
         }
-        public void CollectedResources()
+        public string CollectedResources()
         {
-
+            return Rescource; //placeholder
         }
-        public void CurrentPosition()
+        public string CurrentPosition()
         {
-
+            return CurrentPosition; //placeholder
         }
         private void Colission()
         {
 
         }
+
 
     }
 }

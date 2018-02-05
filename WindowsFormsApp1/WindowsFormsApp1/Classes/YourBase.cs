@@ -13,12 +13,13 @@ namespace WindowsFormsApp1.Classes
         {
 
         }
-        public void Position()
+        public string Position()
         {
+            return Position; //placeholder
         }
-        public void TotalResource()
+        public int TotalResource()
         {
-
+            return TR; //placeholder
         }
         public void ControlWorkers()
         {

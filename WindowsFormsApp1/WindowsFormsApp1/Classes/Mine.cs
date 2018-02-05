@@ -13,10 +13,11 @@ namespace WindowsFormsApp1.Classes
         {
 
         }
-        public void Position()
+        public string Position()
         {
-
+            return Position;//placeholder
         }
+
         public int Health
         {
             set
@@ -34,7 +35,11 @@ namespace WindowsFormsApp1.Classes
         }
         public int WorkerCount()
         {
-            return WorkCounter;
+            return WorkCounter;//placeholder
+        }
+        public int WorkTime()
+        {
+            return Time; //placeholder
         }
     }
 }
