@@ -8,16 +8,31 @@ namespace WindowsFormsApp1.Classes
 {
     class YourBase
     {
+        public string position; 
 
-        public void Collision()
+
+        public YourBase()
         {
 
         }
+<<<<<<< HEAD
         public string Position()
         {
             return Position; //placeholder
         }
         public int TotalResource()
+=======
+
+        public void Collision()
+        {
+
+        }
+        /*public void Position()
+        {
+
+        }*/
+        public void TotalResource()
+>>>>>>> 23b0174308b7723ed59034d998d92bcbd9b653f2
         {
             return TR; //placeholder
         }
