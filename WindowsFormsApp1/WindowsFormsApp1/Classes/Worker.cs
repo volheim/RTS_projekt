@@ -8,6 +8,13 @@ namespace WindowsFormsApp1.Classes
 {
     class Worker
     {
+        public string position;
+
+        public Worker()
+        {
+
+        }
+
         public void TargetPosition()
         {
 
@@ -16,10 +23,10 @@ namespace WindowsFormsApp1.Classes
         {
 
         }
-        public void CurrentPosition()
+        /*public void CurrentPosition()
         {
 
-        }
+        }*/
         private void Colission()
         {
 

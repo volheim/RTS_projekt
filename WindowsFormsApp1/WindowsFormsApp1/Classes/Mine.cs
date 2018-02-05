@@ -9,14 +9,23 @@ namespace WindowsFormsApp1.Classes
     class Mine
     {
         int health = 100;
+
+        public string position;
+
+
+        public Mine()
+        {
+
+        }
+
         public void AddResourceToWorker()
         {
 
         }
-        public void Position()
+        /*public void Position()
         {
 
-        }
+        }*/
         public int Health
         {
             set
