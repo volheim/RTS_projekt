@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace WindowsFormsApp1.Classes
+namespace WindowsFormsApp1
 {
-    class GameObject
+    public class GameObject
     {
-        protected float posX;
-        protected float posY;
+         float posX;
+         float posY;
 
-        protected Graphics dc;
+         Graphics dc;
 
-        protected RectangleF colissionBox;
+         RectangleF colissionBox;
 
-        protected Image sprite;
+         Image sprite;
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace WindowsFormsApp1.Classes
+namespace WindowsFormsApp1
 {
-    class Worker : GameObject
+    public class Worker : GameObject
     {
 
         Graphics dc;

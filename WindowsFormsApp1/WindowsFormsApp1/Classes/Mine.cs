@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace WindowsFormsApp1.Classes
+namespace WindowsFormsApp1
 {
-    class Mine : GameObject
+    public class Mine : GameObject
     {
         int health = 100;
 

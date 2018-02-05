@@ -13,7 +13,9 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        static List<Object> objList;
+        Main mainLoop;
+
+        static List<GameObject> objList;
         static List<string> locationList;
         static Graphics dc;
         BufferedGraphics backBuffer;
@@ -21,17 +23,14 @@ namespace WindowsFormsApp1
         int money;
 
         int maxWorkerCount;
-        List<Object> workerList;
-        List<Object> mineList;
 
         string baseLoccation;
 
         public Form1()
         {
             InitializeComponent();
-            Thread workerThread = new Thread(WorkerLoop);
-            Thread mineThread = new Thread(MineLoop);
 
+            mainLoop = new Main();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -49,7 +48,7 @@ namespace WindowsFormsApp1
 
         public void WorkerLoop()
         {
-            foreach (object obj in workerList)
+            foreach (GameObject obj in workerList)
             {
                 obj.
             }
@@ -67,17 +66,17 @@ namespace WindowsFormsApp1
             MineLoop();
         }
 
-        public void RemoveObjFromList(object obj)
+        public void RemoveObjFromList(GameObject obj)
         {
             objList.Remove(obj);
         }
 
-        public void AddObjToList(object obj)
+        public void AddObjToList(GameObject obj)
         {
             objList.Add(obj);
         }
 
-        public void UpdateLocations(object obj, int i)
+        public void UpdateLocations(GameObject obj, int i)
         {
             //locationList[i] = objList[i]/*get x & y location as string*/
         }
@@ -88,7 +87,7 @@ namespace WindowsFormsApp1
             dc.Clear(Color.White);
 
             int i = 0;
-            foreach(object obj in objList)
+            foreach(GameObject obj in objList)
             {
                 UpdateLocations(obj, i);
 
