@@ -32,11 +32,7 @@ namespace WindowsFormsApp1
             Thread workerThread = new Thread(WorkerLoop);
             Thread mineThread = new Thread(MineLoop);
 
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            GameLoop();
         }
 
         public void GameLoop()
@@ -45,6 +41,7 @@ namespace WindowsFormsApp1
             
             
             Draw();
+            GameLoop();
         }
 
         public void WorkerLoop()

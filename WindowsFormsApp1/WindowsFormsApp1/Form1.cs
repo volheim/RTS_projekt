@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Numerics;
 
 namespace WindowsFormsApp1
 {
@@ -23,8 +24,12 @@ namespace WindowsFormsApp1
         int money;
 
         int maxWorkerCount;
+        List<Worker> workerList;
 
-        string baseLoccation;
+        List<Mine> mineList;
+
+        Vector2 baseLocation;
+        Vector2 mineLocation;
 
         public Form1()
         {
@@ -50,7 +55,7 @@ namespace WindowsFormsApp1
         {
             foreach (GameObject obj in workerList)
             {
-                obj.
+                
             }
 
             WorkerLoop();
@@ -91,7 +96,7 @@ namespace WindowsFormsApp1
             {
                 UpdateLocations(obj, i);
 
-                obj.Draw();
+                //obj.Draw();
                 i++;
             }
 
