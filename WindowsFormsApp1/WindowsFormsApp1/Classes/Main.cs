@@ -11,6 +11,14 @@ namespace WindowsFormsApp1
 {
     class Main
     {
+        public DateTime startTime;
+        public DateTime endTime;
+        public float fps;
+
+
+        int addWorker;
+        int addMine;
+
 
         GameObject go;
 
@@ -18,6 +26,9 @@ namespace WindowsFormsApp1
         List<Vector2> locationList;
         Graphics dc;
         BufferedGraphics backBuffer;
+
+        Vector2 spawnPosition;
+        Vector2 initialDestination;
 
         bool lastPurchaseValid;
         int money;
@@ -34,32 +45,52 @@ namespace WindowsFormsApp1
 
         public Main()
         {
-
-            workerThread = new Thread(WorkerLoop);
-            mineThread = new Thread(MineLoop);
+            if(addWorker > 0)
+            {
+                workerThread = new Thread(NewWorkerLoop);
+                addWorker--;
+            }
+            if(addMine > 0)
+            {
+                mineThread = new Thread(MineLoop);
+                addMine--;
+            }
+            
 
             GameLoop();
         }
 
         public void GameLoop()
         {
+            startTime = DateTime.Now;
+            
+            
 
-            
-            
             Draw();
+            endTime = DateTime.Now;
+            fps = (endTime - startTime).Milliseconds;
+            fps = 1 / fps;
             GameLoop();
         }
 
+        void NewWorkerLoop()
+        {
+            Worker newWorker = new Worker(spawnPosition, initialDestination, 2.5f, 25);
+            WorkerLoop();
+        }
         public void WorkerLoop()
         {
-            foreach (Worker obj in workerList)
-            {
-                
-            }
+
+            
 
             WorkerLoop();
         }
 
+        void NewMineLoop()
+        {
+            Mine newMine = new Mine(3, 15, new Vector2(spawnPosition.X + 100, spawnPosition.Y + 100));
+            MineLoop();
+        }
         public void MineLoop()
         {
             foreach (Object obj in mineList)

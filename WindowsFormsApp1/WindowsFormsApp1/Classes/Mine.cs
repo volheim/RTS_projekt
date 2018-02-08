@@ -23,11 +23,21 @@ namespace WindowsFormsApp1
 
         static Semaphore mineGate = new Semaphore(0, 3);
 
+        bool atMine;
+        bool atBase;
+
 
         public void MineLoop()
         {
 
+            if (atMine)
+            {
+                AddResourceToWorkers();
+            }
+            else if (atBase)
+            {
 
+            }
             MineLoop();
         }
 

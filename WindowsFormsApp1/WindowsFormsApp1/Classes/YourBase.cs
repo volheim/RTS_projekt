@@ -15,27 +15,12 @@ namespace WindowsFormsApp1
         {
 
         }
-        public string Position()
-        {
-            return Position; //placeholder
-        }
-        public int TotalResource()
-        {
-
-        }
         
         public void Collision()
         {
 
         }
-        /*public void Position()
-        {
-
-        }*/
-        public void TotalResource()
-        {
-            return TR; //placeholder
-        }
+ 
         public void ControlWorkers()
         {
 

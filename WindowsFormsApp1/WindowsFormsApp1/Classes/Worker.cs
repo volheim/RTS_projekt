@@ -29,12 +29,27 @@ namespace WindowsFormsApp1
             this.carryWeight = carryWeight;
         }
 
+        public void WorkerLoop()
+        {
+
+            Move();
+            //Draw();
+            WorkerLoop();
+        }
+
         public void CheckResources()
         {
             if(tempResources >= carryWeight)
             {
                 carrying = carryWeight;
             }
+        }
+
+        private void Move()
+        {
+            Vector2 newPos = new Vector2(position.X - targetPosition.X, position.Y - targetPosition.Y);
+            newPos = Vector2.Normalize(newPos);
+            //newPos.
         }
 
         private void Colission()
