@@ -11,13 +11,15 @@ namespace WindowsFormsApp1
 {
     class Main
     {
+
         GameObject go;
 
         List<GameObject> objList;
-        List<string> locationList;
+        List<Vector2> locationList;
         Graphics dc;
         BufferedGraphics backBuffer;
 
+        bool lastPurchaseValid;
         int money;
 
         int maxWorkerCount;
@@ -26,11 +28,15 @@ namespace WindowsFormsApp1
 
         string baseLoccation;
 
+
+        Thread workerThread;
+        Thread mineThread;
+
         public Main()
         {
-            
-            Thread workerThread = new Thread(WorkerLoop);
-            Thread mineThread = new Thread(MineLoop);
+
+            workerThread = new Thread(WorkerLoop);
+            mineThread = new Thread(MineLoop);
 
             GameLoop();
         }
@@ -74,8 +80,22 @@ namespace WindowsFormsApp1
             objList.Add(obj);
         }
 
+        public void CheckResources(int i)
+        {
+            if(i > 0 || (i += money) >= 0)
+            {
+                money += i;
+                lastPurchaseValid = true;
+            }
+            else
+            {
+                lastPurchaseValid = false;
+            }
+        }
+
         public void UpdateLocations(object obj, int i)
         {
+            
             //locationList[i] = objList[i]/*get x & y location as string*/
         }
 

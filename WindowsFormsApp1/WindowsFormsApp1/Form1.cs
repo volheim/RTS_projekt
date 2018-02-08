@@ -43,34 +43,6 @@ namespace WindowsFormsApp1
 
         }
 
-        public void GameLoop()
-        {
-
-
-
-            Draw();
-        }
-
-        public void WorkerLoop()
-        {
-            foreach (GameObject obj in workerList)
-            {
-                
-            }
-
-            WorkerLoop();
-        }
-
-        public void MineLoop()
-        {
-            foreach(Object obj in mineList)
-            {
-
-            }
-
-            MineLoop();
-        }
-
         public void RemoveObjFromList(GameObject obj)
         {
             objList.Remove(obj);

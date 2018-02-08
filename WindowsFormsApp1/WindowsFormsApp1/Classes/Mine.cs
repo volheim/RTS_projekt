@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Numerics;
+using System.Threading;
 
 namespace WindowsFormsApp1
 {
@@ -11,29 +13,38 @@ namespace WindowsFormsApp1
     {
         int health = 100;
 
-        public string position;
+        public Vector2 position;
 
         Graphics dc;
 
+        int maxWorkerCount;
+        List<Worker> currentWorkers;
+        float resourcesPerSecond;
 
-        public void AddResourceToWorker()
+        static Semaphore mineGate = new Semaphore(0, 3);
+
+
+        public void MineLoop()
         {
+
+
+            MineLoop();
+        }
+
+        public void AddResourceToWorkers()
+        {
+            mineGate.WaitOne();
 
         }
 
-        public Mine()
+        public Mine(int maxWorkerCount, float resourcesPerSecond, Vector2 position)
         {
-
+            this.maxWorkerCount = maxWorkerCount;
+            this.resourcesPerSecond = resourcesPerSecond;
+            this.position = position;
         }
 
-        public string Position()
-        {
-            return Position;//placeholder
-        }
-        /*public void Position()
-        {
-
-        }*/
+        
         public int Health
         {
             set
@@ -49,15 +60,6 @@ namespace WindowsFormsApp1
                 return health;
             }
         }
-        public int WorkerCount()
-        {
-            return WorkCounter;//placeholder
-        }
-        public int WorkTime()
-        {
-            return Time; //placeholder
-        }
-
 
         public void Draw()
         {

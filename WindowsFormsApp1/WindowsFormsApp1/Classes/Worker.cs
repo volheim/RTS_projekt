@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Numerics;
 
 namespace WindowsFormsApp1
 {
@@ -12,32 +13,29 @@ namespace WindowsFormsApp1
 
         Graphics dc;
 
-        public int TargetPosition(int x, int y);
+        public Vector2 targetPosition;
+        public Vector2 position;
 
-        public string position;
+        float speed;
+        int carryWeight;
+        int carrying;
+        public float tempResources;
 
-        public Worker()
+        public Worker(Vector2 pos, Vector2 targetPos, float speed, int carryWeight)
         {
-
+            position = pos;
+            targetPosition = targetPos;
+            this.speed = speed;
+            this.carryWeight = carryWeight;
         }
 
-        public void TargetPosition()
+        public void CheckResources()
         {
-            return x,y; //placeholder
+            if(tempResources >= carryWeight)
+            {
+                carrying = carryWeight;
+            }
         }
-        public string CollectedResources()
-        {
-            return Rescource; //placeholder
-        }
-        public string CurrentPosition()
-        {
-            return CurrentPosition; //placeholder
-        }
-
-        /*public void CurrentPosition()
-        {
-
-        }*/
 
         private void Colission()
         {
