@@ -43,45 +43,46 @@ namespace WindowsFormsApp1
         Thread workerThread;
         Thread mineThread;
 
+
+
+        public static List<GameObject> objects;
+
+        private float currentFPS;
+        
+
+
         public Main()
         {
-            if(addWorker > 0)
+            Rectangle displayRectangle = new Rectangle();
+            if (addWorker > 0)
             {
                 workerThread = new Thread(NewWorkerLoop);
                 addWorker--;
             }
-            if(addMine > 0)
+            if (addMine > 0)
             {
                 mineThread = new Thread(MineLoop);
                 addMine--;
             }
-            
 
-            GameLoop();
+            backBuffer = BufferedGraphicsManager.Current.Allocate(dc, displayRectangle);
+
+            dc = backBuffer.Graphics;
+            //this.dc = dc;
+            SetupWorld();
+            
         }
 
-        public void GameLoop()
-        {
-            startTime = DateTime.Now;
-            
-            
-
-            Draw();
-            endTime = DateTime.Now;
-            fps = (endTime - startTime).Milliseconds;
-            fps = 1 / fps;
-            GameLoop();
-        }
 
         void NewWorkerLoop()
         {
-            Worker newWorker = new Worker(spawnPosition, initialDestination, 2.5f, 25);
+            Worker newWorker = new Worker(new System.Numerics.Vector2(40, 40), 10, 10, 10, @"Images\Sprites\Worker\spaceAstronauts_001.png");
             WorkerLoop();
         }
         public void WorkerLoop()
         {
 
-            
+
 
             WorkerLoop();
         }
@@ -113,7 +114,7 @@ namespace WindowsFormsApp1
 
         public void CheckResources(int i)
         {
-            if(i > 0 || (i += money) >= 0)
+            if (i > 0 || (i += money) >= 0)
             {
                 money += i;
                 lastPurchaseValid = true;
@@ -126,47 +127,69 @@ namespace WindowsFormsApp1
 
         public void UpdateLocations(object obj, int i)
         {
-            
+
             //locationList[i] = objList[i]/*get x & y location as string*/
         }
 
-        void Draw()
+
+
+        public void SetupWorld()
         {
 
-            dc.Clear(Color.White);
+            objects = new List<GameObject>();
+            objects.Add(new Worker(new System.Numerics.Vector2(40, 40), 10, 10, 10, @"Images\Sprites\Worker\spaceAstronauts_001.png"));
 
-            int i = 0;
-            foreach (GameObject obj in objList)
-            {
-                UpdateLocations(obj, i);
+            // objects.Add(new enemy(new System.Numerics.Vector2(40, 40), 10, 10, 10, @"Images\Sprites\Worker\spaceAstronauts_001.png"));
+            endTime = DateTime.Now;
+            GameLoop();
+        }
 
-                
-                i++;
-            }
+        public void GameLoop()
+        {
+            DateTime startTime = DateTime.Now;
+            TimeSpan deltaTime = startTime - endTime;
+            int milliseconds = deltaTime.Milliseconds > 0 ? deltaTime.Milliseconds : 1;
+            endTime = DateTime.Now;
+            currentFPS = 1000 / milliseconds;
 
 
-            /*dc.Clear(Color.Cornsilk);
-            Font f = new Font("Arial", 16);
-            foreach (GameObject go in objects)
+            //Update(currentFPS);
+            UpdateAnimations(currentFPS);
+            Draw();
+            GameLoop();
+        }
+
+        private void Draw()
+        {
+            dc.Clear(Color.Blue);
+            /*foreach (GameObject go in objects)
             {
                 go.Draw(dc);
-
-    #if DEBUG //This code will only be run in   debug mode
-                dc.DrawString(string.Format("FPS: {0}", currentFps), f, Brushes.Black, 550, 0);
-    #endif
-
-            }
-            foreach (Explosion ex in explosions_List)
-            {
-                ex.Draw(dc);
-            }
-            foreach (Player player in playerList)
-            {
-                DrawUiPlayer(player);
-
-            }
-            //Renders the content of the buffered graphics context to the real context(Swap buffers)*/
+            }*/
+/*#if DEBUG //kommer kun op når der de bugges
+            Font f = new Font("Arial", 16);
+            dc.DrawString(string.Format("FPS: {0}", currentFPS), f, Brushes.Black, 0, 0);
+#endif*/
             backBuffer.Render();
         }
+
+        /*private void Update(float fps)
+        {
+            foreach (GameObject go in objects)
+            {
+                go.Update(fps);
+            }
+        }*/
+
+
+        private void UpdateAnimations(float fps)
+        {
+            foreach (GameObject go in objects)
+            {
+                //go.UpdateAnimations(fps);
+            }
+        }
+
+
     }
 }

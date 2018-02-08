@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
     {
 
         Graphics dc;
+        Image sprite;
 
         public Vector2 targetPosition;
         public Vector2 position;
@@ -21,12 +22,17 @@ namespace WindowsFormsApp1
         int carrying;
         public float tempResources;
 
-        public Worker(Vector2 pos, Vector2 targetPos, float speed, int carryWeight)
+        /* public Worker(Vector2 pos, Vector2 targetPos, float speed, int carryWeight)
+         {
+             position = pos;
+             targetPosition = targetPos;
+             this.speed = speed;
+             this.carryWeight = carryWeight;
+         }*/
+
+        public Worker(Vector2 startPos, float scaleFactor, int carryWeight, float speed, string imagePath) : base(new Vector2(10, 10), 10)
         {
-            position = pos;
-            targetPosition = targetPos;
-            this.speed = speed;
-            this.carryWeight = carryWeight;
+            this.sprite = Image.FromFile(imagePath);
         }
 
         public void WorkerLoop()
@@ -39,7 +45,7 @@ namespace WindowsFormsApp1
 
         public void CheckResources()
         {
-            if(tempResources >= carryWeight)
+            if (tempResources >= carryWeight)
             {
                 carrying = carryWeight;
             }

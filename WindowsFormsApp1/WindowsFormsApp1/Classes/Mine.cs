@@ -47,14 +47,14 @@ namespace WindowsFormsApp1
 
         }
 
-        public Mine(int maxWorkerCount, float resourcesPerSecond, Vector2 position)
+        public Mine(int maxWorkerCount, float resourcesPerSecond, Vector2 position) : base(new Vector2(50, 50), 10)
         {
             this.maxWorkerCount = maxWorkerCount;
             this.resourcesPerSecond = resourcesPerSecond;
             this.position = position;
         }
 
-        
+
         public int Health
         {
             set
@@ -62,7 +62,7 @@ namespace WindowsFormsApp1
                 health = value;
                 if (health <= 0)
                 {
-                    
+
                 }
             }
             get

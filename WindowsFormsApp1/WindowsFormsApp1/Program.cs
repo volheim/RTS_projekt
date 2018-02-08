@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
             }
 
             
-            Main();
+            
         }
     }
 }

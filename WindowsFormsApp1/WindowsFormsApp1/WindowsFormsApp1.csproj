@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\GameObject.cs" />
+    <Compile Include="Classes\GameWorld.cs" />
     <Compile Include="Classes\Main.cs" />
     <Compile Include="Classes\Mine.cs" />
+    <Compile Include="Classes\Vector2.cs" />
     <Compile Include="Classes\Worker.cs" />
     <Compile Include="Classes\YourBase.cs" />
     <Compile Include="Form1.cs">
@@ -359,7 +361,9 @@
     <Content Include="Images\Sprites\Station\spaceStation_029.png" />
     <Content Include="Images\Sprites\Station\spaceStation_030.png" />
     <Content Include="Images\Sprites\Station\spaceStation_031.png" />
-    <Content Include="Images\Sprites\Worker\spaceAstronauts_001.png" />
+    <Content Include="Images\Sprites\Worker\spaceAstronauts_001.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Sprites\Worker\spaceAstronauts_002.png" />
     <Content Include="Images\Sprites\Worker\spaceAstronauts_003.png" />
     <Content Include="Images\Sprites\Worker\spaceAstronauts_004.png" />
